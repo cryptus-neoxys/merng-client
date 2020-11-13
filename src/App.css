@@ -1,0 +1,14 @@
+.page-title {
+  display: block !important;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 10px;
+}
+.form-container {
+  max-width: 400px;
+  margin: auto;
+}
+.ui.teal.button:hover,
+.ui.teal.buttons .button:hover {
+  background-color: #00b5ad;
+}
