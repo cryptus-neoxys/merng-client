@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useContext } from "react";
-import { Grid, Dimmer, Loader, Transition } from "semantic-ui-react";
+import { Grid, Dimmer, Loader, Transition, Segment } from "semantic-ui-react";
 
 import PostCard from "../components/PostCard";
 import { AuthContext } from "../context/auth";
@@ -20,31 +20,33 @@ const Home = () => {
   }
 
   return (
-    <Grid columns={3}>
+    <Grid columns={3} doubling stackable>
       <Grid.Row className='page-title'>
         <h1>Recent Posts</h1>
       </Grid.Row>
-      <Grid.Row>
-        {user && !loading && (
-          <Grid.Column>
+      {user && !loading && (
+        <Grid.Column>
+          <Segment>
             <PostForm />
-          </Grid.Column>
-        )}
-        {loading ? (
-          <Dimmer active inverted style={{ marginTop: 30 }}>
-            <Loader inverted size='massive' content='Loading Posts' />
-          </Dimmer>
-        ) : (
-          <Transition.Group>
-            {posts &&
-              posts.map((post) => (
-                <Grid.Column key={post.id} style={{ marginBottom: 20 }}>
+          </Segment>
+        </Grid.Column>
+      )}
+      {loading ? (
+        <Dimmer active inverted style={{ marginTop: 30 }}>
+          <Loader inverted size='massive' content='Loading Posts' />
+        </Dimmer>
+      ) : (
+        <Transition.Group>
+          {posts &&
+            posts.map((post) => (
+              <Grid.Column key={post.id} style={{ marginBottom: 20 }}>
+                <Segment>
                   <PostCard post={post} />
-                </Grid.Column>
-              ))}
-          </Transition.Group>
-        )}
-      </Grid.Row>
+                </Segment>
+              </Grid.Column>
+            ))}
+        </Transition.Group>
+      )}
     </Grid>
   );
 };
