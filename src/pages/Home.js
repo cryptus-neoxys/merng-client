@@ -31,7 +31,7 @@ const Home = () => {
         </Grid.Column>
       )}
       {loading ? (
-        <Dimmer active inverted style={{ marginTop: 60 }}>
+        <Dimmer active inverted style={{ marginTop: 45 }}>
           <Loader inverted size="massive" content="Loading Posts" />
         </Dimmer>
       ) : (
