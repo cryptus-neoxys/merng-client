@@ -16,12 +16,11 @@ const Home = () => {
 
   if (data) {
     posts = data.getPosts;
-    console.log(posts);
   }
 
   return (
     <Grid columns={3} doubling stackable style={{ marginTop: 20 }}>
-      <Grid.Row className='page-title'>
+      <Grid.Row className="page-title">
         <h1>Recent Posts</h1>
       </Grid.Row>
       {user && !loading && (
@@ -33,7 +32,7 @@ const Home = () => {
       )}
       {loading ? (
         <Dimmer active inverted style={{ marginTop: 30 }}>
-          <Loader inverted size='massive' content='Loading Posts' />
+          <Loader inverted size="massive" content="Loading Posts" />
         </Dimmer>
       ) : (
         <Transition.Group>
