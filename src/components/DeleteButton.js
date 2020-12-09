@@ -39,14 +39,13 @@ function DeleteButton({ postId, callback, size, commentId }) {
         trigger={
           <Button
             size={size}
-            as='div'
-            color='red'
-            floated='right'
+            as="div"
+            color="red"
+            floated="right"
             onClick={() => {
               setConfirmOpen(true);
-              console.log("delete post");
             }}>
-            <Icon name='trash' style={{ margin: 0 }} />
+            <Icon name="trash" style={{ margin: 0 }} />
           </Button>
         }
       />
