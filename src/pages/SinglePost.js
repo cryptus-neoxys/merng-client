@@ -35,7 +35,6 @@ function SinglePost(props) {
 
   if (data) {
     getPost = data.getPost;
-    console.log(getPost);
   }
 
   const [submitComment] = useMutation(SUBMIT_COMMENT_MUTATION, {
@@ -61,7 +60,7 @@ function SinglePost(props) {
   if (!getPost) {
     postMarkup = (
       <Dimmer active inverted style={{ marginTop: 30 }}>
-        <Loader inverted size='big' content='Loading Post' />
+        <Loader inverted size="big" content="Loading Post" />
       </Dimmer>
     );
   } else {
@@ -81,9 +80,9 @@ function SinglePost(props) {
         <Grid.Row>
           <Grid.Column width={2}>
             <Image
-              src='https://react.semantic-ui.com/images/avatar/large/molly.png'
-              size='small'
-              float='right'
+              src="https://react.semantic-ui.com/images/avatar/large/molly.png"
+              size="small"
+              float="right"
             />
           </Grid.Column>
           <Grid.Column width={10}>
@@ -97,22 +96,21 @@ function SinglePost(props) {
               <Card.Content extra>
                 <LikeButton user={user} post={{ id, likeCount, likes }} />
                 <Button
-                  as='div'
-                  labelPosition='right'
+                  as="div"
+                  labelPosition="right"
                   onClick={() => {
                     commentInputRef.current.focus();
-                    console.log("Comment on post");
                   }}>
                   <Popup
                     inverted
-                    content='Like Post'
+                    content="Like Post"
                     trigger={
-                      <Button basic color='blue'>
-                        <Icon name='comments' />
+                      <Button basic color="blue">
+                        <Icon name="comments" />
                       </Button>
                     }
                   />
-                  <Label basic color='blue' pointing='left'>
+                  <Label basic color="blue" pointing="left">
                     {commentCount}
                   </Label>
                 </Button>
@@ -127,18 +125,18 @@ function SinglePost(props) {
                   <Card.Content>
                     <p>Post a comment</p>
                     <Form>
-                      <div className='ui action input fluid'>
+                      <div className="ui action input fluid">
                         <input
-                          type='text'
-                          placeholder='Comment ...'
-                          name='comment'
+                          type="text"
+                          placeholder="Comment ..."
+                          name="comment"
                           value={comment}
                           onChange={(event) => setComment(event.target.value)}
                           ref={commentInputRef}
                         />
                         <button
-                          type='submit'
-                          className='ui button teal'
+                          type="submit"
+                          className="ui button teal"
                           disabled={comment.trim() === ""}
                           onClick={submitComment}>
                           Comment
@@ -153,7 +151,7 @@ function SinglePost(props) {
                   <Card.Content>
                     {user && user.username === comment.username && (
                       <DeleteButton
-                        size='mini'
+                        size="mini"
                         postId={id}
                         commentId={comment.id}
                       />
